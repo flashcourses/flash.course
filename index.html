@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLASH COURSES - Livraison Express à Maroua</title>
+  <meta name="description" content="Service de livraison rapide à Maroua - Courses, colis, produits alimentaires et pharmaceutiques">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ffc107;
+      --secondary-color: #343a40;
+      --success-color: #28a745;
+      --text-dark: #333;
+      --background-light: #f8f9fa;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background-color: var(--background-light);
+      line-height: 1.6;
+    }
+    
+    .navbar { 
+      background-color: var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand { 
+      font-weight: bold; 
+      color: #fff !important;
+      font-size: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .nav-link { 
+      color: #fff !important; 
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--secondary-color) !important;
+      transform: translateY(-2px);
+    }
+    
+    .header { 
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://upload.wikimedia.org/wikipedia/commons/f/f3/Maroua_vue.jpg') center/cover no-repeat; 
+      color: white; 
+      padding: 120px 0; 
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255,193,7,0.1), rgba(52,58,64,0.1));
+      z-index: 1;
+    }
+    
+    .header .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .header h1 {
+      animation: fadeInUp 1s ease-out;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+    }
+    
+    .header p {
+      animation: fadeInUp 1s ease-out 0.3s both;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .service-icon { 
+      font-size: 3.5rem; 
+      color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+    
+    .services .card { 
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      background: white;
+    }
+    
+    .services .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+    
+    .services .card:hover .service-icon {
+      transform: scale(1.1);
+      color: var(--success-color);
+    }
+    
+    .services .card h4 {
+      color: var(--text-dark);
+      margin: 20px 0 15px 0;
+      font-weight: 600;
+    }
+    
+    .services .card p {
+      color: #666;
+      margin-bottom: 0;
+    }
+    
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .contact-form input, .contact-form textarea { 
+      margin-bottom: 15px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 12px 15px;
+      transition: border-color 0.3s ease;
+    }
+    
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(255,193,7,0.25);
+    }
+    
+    .contact-info {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .contact-info h5 {
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .contact-info p {
+      margin-bottom: 10px;
+      color: #666;
+    }
+    
+    .btn-warning {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-success {
+      background-color: #25d366;
+      border-color: #25d366;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-success:hover {
+      background-color: #1ea952;
+      border-color: #1ea952;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 100;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    
+    .whatsapp-float:hover {
+      background-color: #1ea952;
+      color: white;
+      transform: scale(1.1);
+      text-decoration: none;
+    }
+    
+    footer { 
+      background-color: var(--secondary-color); 
+      color: white; 
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    .lang-switch { 
+      cursor: pointer; 
+      font-weight: bold; 
+      margin-left: 15px;
+      padding: 5px 10px;
+      border: 2px solid white;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .lang-switch:hover {
+      background-color: white;
+      color: var(--primary-color) !important;
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 50px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    
+    .map-container {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header {
+        padding: 80px 0;
+      }
+      
+      .header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .service-icon {
+        font-size: 2.5rem;
+      }
+      
+      .contact-form, .contact-info {
+        margin-bottom: 30px;
+      }
+      
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+      }
+      
+      .header .btn {
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+      }
+    }
+    
+    /* Loading Animation */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--primary-color);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Success Message */
+    .success-message {
+      display: none;
+      background-color: var(--success-color);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="bi bi-lightning-charge"></i> FLASH COURSES</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#services" data-i18n="services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="contact">Contact</a></li>
+          <li class="nav-item"><span class="nav-link lang-switch" onclick="switchLang()" role="button" aria-label="Changer de langue">EN</span></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="header" style="margin-top: 70px;">
+    <div class="container">
+      <h1 class="display-4 mb-4" data-i18n="slogan">À la vitesse de l'éclair, à votre service !</h1>
+      <p class="lead mb-4" data-i18n="intro">Livraison rapide et fiable à Maroua et ses environs</p>
+      <a href="#contact" class="btn btn-warning btn-lg me-3" data-i18n="order_now">Commander maintenant</a>
+      <a href="https://wa.me/237655787038?text=Bonjour%20FLASH%20COURSES,%20je%20souhaite%20commander%20un%20service" target="_blank" class="btn btn-success btn-lg">
+        <i class="bi bi-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services" class="services py-5">
+    <div class="container">
+      <h2 class="text-center section-title" data-i18n="our_services">Nos Services</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card p-4 text-center">
+            <i class="bi bi-bag-check service-icon"></i>
+            <h4 class="mt-3">FLASH SHOPPING</h4>
+            <p data-i18n="shopping">Faites vos courses sans vous déplacer, nous livrons chez vous.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card p-4 text-center">
+            <i class="bi bi-box service-icon"></i>
+            <h4 class="mt-3">FLASH COLIS</h4>
+            <p data-i18n="colis">Envoi et réception rapide de vos colis.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card p-4 text-center">
+            <i class="bi bi-basket service-icon"></i>
+            <h4 class="mt-3">FLASH ALIMENTAIRE</h4>
+            <p data-i18n="food">Livraison express de produits alimentaires frais.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card p-4 text-center">
+            <i class="bi bi-capsule service-icon"></i>
+            <h4 class="mt-3">FLASH SANTÉ</h4>
+            <p data-i18n="sante">Courses urgentes de produits pharmaceutiques et de santé.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card p-4 text-center">
+            <i class="bi bi-truck service-icon"></i>
+            <h4 class="mt-3">FLASH DÉMÉNAGEMENT</h4>
+            <p data-i18n="dem">Service de déménagement rapide et sécurisé.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card p-4 text-center">
+            <i class="bi bi-clock service-icon"></i>
+            <h4 class="mt-3">FLASH EXPRESS</h4>
+            <p data-i18n="express">Livraison ultra-rapide en moins de 30 minutes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center section-title" data-i18n="contact_us">Contactez-nous</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="contact-info">
+            <h5 data-i18n="promoteur">Coordonnées du promoteur :</h5>
+            <p><strong>Nom :</strong> OUSMANOU KAÏGAMA</p>
+            <p><strong><i class="bi bi-whatsapp text-success"></i> WhatsApp :</strong> <a href="https://wa.me/237655787038?text=Bonjour%20FLASH%20COURSES,%20je%20souhaite%20commander%20un%20service" target="_blank" class="text-success">+237 655 78 70 38</a></p>
+            <p><strong><i class="bi bi-telephone"></i> Appel :</strong> <a href="tel:+237659210630" class="text-primary">+237 659 21 06 30</a></p>
+            <p><strong><i class="bi bi-geo-alt"></i> Adresse :</strong> Maroua, Cameroun</p>
+            <p><strong><i class="bi bi-clock"></i> Horaires :</strong> 24h/24, 7j/7</p>
+          </div>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31500.123456789!2d14.315894!3d10.583333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b1a7d4e3c4c45%3A0x5e5f5f5f5f5f5f5f!2sMaroua%2C%20Cameroon!5e0!3m2!1sfr!2scm!4v1640995200000!5m2!1sfr!2scm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form class="contact-form" id="contactForm">
+            <h5 class="mb-3" data-i18n="send_message">Envoyez-nous un message</h5>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom" required data-i18n-placeholder="your_name">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Votre email" required data-i18n-placeholder="your_email">
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Votre téléphone" data-i18n-placeholder="your_phone">
+            <select class="form-control" id="service" name="service" required>
+              <option value="" data-i18n="select_service">Sélectionnez un service</option>
+              <option value="shopping">FLASH SHOPPING</option>
+              <option value="colis">FLASH COLIS</option>
+              <option value="alimentaire">FLASH ALIMENTAIRE</option>
+              <option value="sante">FLASH SANTÉ</option>
+              <option value="demenagement">FLASH DÉMÉNAGEMENT</option>
+              <option value="express">FLASH EXPRESS</option>
+            </select>
+            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Votre message" required data-i18n-placeholder="your_message"></textarea>
+            <button type="submit" class="btn btn-warning" data-i18n="send">Envoyer</button>
+            
+            <div class="loading" id="loading">
+              <div class="spinner"></div>
+              <p data-i18n="sending">Envoi en cours...</p>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+              <i class="bi bi-check-circle"></i>
+              <span data-i18n="message_sent">Message envoyé avec succès ! Nous vous répondrons rapidement.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; 2025 FLASH COURSES - Tous droits réservés</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p>Développé avec ❤️ pour Maroua</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/237655787038?text=Bonjour%20FLASH%20COURSES,%20je%20souhaite%20commander%20un%20service" target="_blank" class="whatsapp-float" title="Contacter via WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <script>
+    const translations = {
+      fr: {
+        services: "Services",
+        contact: "Contact",
+        slogan: "À la vitesse de l'éclair, à votre service !",
+        intro: "Livraison rapide et fiable à Maroua et ses environs",
+        order_now: "Commander maintenant",
+        our_services: "Nos Services",
+        shopping: "Faites vos courses sans vous déplacer, nous livrons chez vous.",
+        colis: "Envoi et réception rapide de vos colis.",
+        food: "Livraison express de produits alimentaires frais.",
+        sante: "Courses urgentes de produits pharmaceutiques et de santé.",
+        dem: "Service de déménagement rapide et sécurisé.",
+        express: "Livraison ultra-rapide en moins de 30 minutes.",
+        contact_us: "Contactez-nous",
+        promoteur: "Coordonnées du promoteur :",
+        send_message: "Envoyez-nous un message",
+        select_service: "Sélectionnez un service",
+        send: "Envoyer",
+        sending: "Envoi en cours...",
+        message_sent: "Message envoyé avec succès ! Nous vous répondrons rapidement.",
+        your_name: "Votre nom",
+        your_email: "Votre email",
+        your_phone: "Votre téléphone",
+        whatsapp: "WhatsApp",
+        call_now: "Appeler maintenant",
+      },
+      en: {
+        services: "Services",
+        contact: "Contact",
+        slogan: "Lightning-fast, at your service!",
+        intro: "Fast and reliable delivery in Maroua and surrounding areas",
+        order_now: "Order now",
+        our_services: "Our Services",
+        shopping: "Shop from home, we deliver to your doorstep.",
+        colis: "Quick sending and receiving of your packages.",
+        food: "Express delivery of fresh food products.",
+        sante: "Urgent delivery of pharmaceuticals and health products.",
+        dem: "Fast and secure moving service.",
+        express: "Ultra-fast delivery in less than 30 minutes.",
+        contact_us: "Contact Us",
+        promoteur: "Promoter's Contact Info:",
+        send_message: "Send us a message",
+        select_service: "Select a service",
+        send: "Send",
+        sending: "Sending...",
+        message_sent: "Message sent successfully! We will respond quickly.",
+        your_name: "Your name",
+        your_email: "Your email",
+        your_phone: "Your phone",
+        whatsapp: "WhatsApp",
+        call_now: "Call now",
+      }
+    };
+    
+    let currentLang = "fr";
+    
+    function switchLang() {
+      currentLang = currentLang === "fr" ? "en" : "fr";
+      document.querySelector('.lang-switch').innerText = currentLang === "fr" ? "EN" : "FR";
+      
+      // Translate text content
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+      
+      // Translate placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[currentLang][key]) {
+          el.placeholder = translations[currentLang][key];
+        }
+      });
+    }
+    
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const loading = document.getElementById('loading');
+      const successMessage = document.getElementById('successMessage');
+      const submitBtn = this.querySelector('button[type="submit"]');
+      
+      // Show loading
+      loading.style.display = 'block';
+      submitBtn.disabled = true;
+      
+      // Simulate form submission (replace with actual form handling)
+      setTimeout(() => {
+        loading.style.display = 'none';
+        successMessage.style.display = 'block';
+        submitBtn.disabled = false;
+        this.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      }, 2000);
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(255, 193, 7, 0.95)';
+      } else {
+        navbar.style.backgroundColor = '#ffc107';
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
